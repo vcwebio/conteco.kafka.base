@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+while read -r INPUT
+do
+
+	# timestamp, source and level are defaults
+	# there are potentially three timestamps: from filebeat reading the log, from the container processing the output and the output itself
+	timestamp=$( to-timestamp )
+	message=$( echo $( output-to-JSON $1 "$INPUT" ) | jq -aR . )
+	printf '{ "@timestamp": "%s", "origin": "%s", "source": "logger", "level": "%s", "message":%s }\n' "$timestamp" "$CONTECO_IMAGE" "$1" "$message"
+
+done
+
+ 

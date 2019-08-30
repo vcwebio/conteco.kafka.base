@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Extracting to $CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_IMAGE"
+echo "Existing folder will be removed first."
+destination=/conteco/pwd/$CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_TYPE.$CONTECO_NAME
+rm -rf $destination
+mkdir -p $destination
+cp -rp /conteco/git-repository/. $destination
+chmod -R 777 $destination

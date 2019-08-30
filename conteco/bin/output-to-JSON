@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# the default is to return the message as is
+# each container type instance can implement its own if required
+stream=$1
+INPUT=$2
+printf "%s" "$INPUT"
+
+ 

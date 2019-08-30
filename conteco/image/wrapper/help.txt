@@ -1,0 +1,36 @@
+
+This is an image of the ContEco container ecosystem.
+To run the ContEco orchestrator from commandline, instantiate a controlplane image with the boot method.
+The controlplane images are prefixed ${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.controlplane
+--------------------------------------------------------------------------------------------
+
+Executing the run command on this container image.
+Usage: docker run [OPTIONS] ${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.${CONTECO_IMAGE}:${CONTECO_TAG} [ARGUMENTS]
+
+[OPTIONS]: 
+    Map a volume when extracting assets from the container image.
+	-v %cd%:/conteco/pwd     -   Windows
+	-v $(pwd):/conteco/pwd   -   Linux
+
+    When running the docker client in a container, map to /conteco/pwd to ensure functionality works as expected
+	-v /conteco/pwd:/conteco/pwd   -   using host volume (Linux)
+	-v conteco.pwd:/conteco/pwd    -   using named volume
+
+    Add the interactive flag when attaching an interactive process to the container.
+    -it
+
+[ARGUMENTS]:
+    The following switches are accepted as arguments:
+    --extract       Extract the project repository embedded in the container to
+                    /conteco/pwd/${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.${CONTECO_IMAGE} (internal path)
+
+
+    --base          Invokes the entrypoint of the base container and passes the remaning arguments to process
+
+    --container     Forces stdout and stderr to the conteco JSON output format
+
+    --help          Help file
+
+    --interactive   Forces stdout and stderr to default output
+
+Consult the documentation about controlplane images on how to build, release and run sets of ContEco containers.

@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+. /conteco/bin/image/wrapper/.profile
+start=$SECONDS
+
+# image-wrapper status information
+timestamp=$(to-timestamp)
+printf '{ "@timestamp":"%s", "source":"wrapper", "level": "INFO", ' "$timestamp"
+printf '"realm": "%s", "ecosystem": "%s", "base": "%s", "tag": "%s", ' "$CONTECO_REALM" "$CONTECO_ECOSYSTEM" "$CONTECO_BASE" "$CONTECO_TAG"
+printf '"status":"initialising", "entrypoint": "/conteco/bin/image/wrapper/run-image %s "}\n' "'$*'"
+
+# invoke entrypoint if no arguments
+if [ $# -eq 0 ] ; then
+  $CONTECO_ENTRYPOINT
+
+# --base switch invokes entrypoint with remaining arguments
+elif [ $1 == '--base' ] ; then 
+  shift
+  $CONTECO_ENTRYPOINT "$@"
+
+# --all switch extracts all folders contained in wrapper
+elif [ $1 == '--extract' ] ; then 
+
+  /conteco/bin/image/wrapper/extract
+
+# --help switch lists available asset folder in image wrapper not including docs
+elif [ $1 == '--help' ]; then 
+  (cat /conteco/image/wrapper/help.txt) | envsubst
+  echo ""
+
+else
+  "$@"
+fi 
+
+# emit log and image wrapper info upon termination
+timestamp=$(to-timestamp)
+duration=$(( SECONDS - start))
+printf '{ "@timestamp":"%s", "source":"wrapper", "level": "INFO", ' "$timestamp"
+printf '"realm": "%s", "ecosystem": "%s", "base": "%s", "tag": "%s", ' "$CONTECO_REALM" "$CONTECO_ECOSYSTEM" "$CONTECO_BASE" "$CONTECO_TAG"
+printf '"status":"exiting", "uptime-seconds":"%s"}\n' "$duration"
+sleep 1

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+length=15
+if [[ $1 != "" ]] ; then
+    length=$1
+fi
+cat /dev/urandom | tr -dc 'a-z0-9' | fold -w ${1:-$length} | head -n 1
+

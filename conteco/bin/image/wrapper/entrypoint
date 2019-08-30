@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+export CONTECO_IMAGE="$CONTECO_TYPE.$CONTECO_NAME"
+export PATH="/conteco/bin/image:/conteco/bin:${PATH}"
+export CONTECO_EXECUTIONPLANE_ORIGINALPATH=$PATH
+export CONTECO_EXECUTIONPLANE="\"${CONTECO_IMAGE}\""
+
+if [[ $CONTECO_PREENTRYPOINT != "" ]] ; then
+  . "$CONTECO_PREENTRYPOINT"
+fi
+
+if [[ $1 == '--executiontag' ]] ; then
+  export CONTECO_EXECUTIONTAG=$2
+  shift
+  shift
+fi
+
+match='--'
+# --base forces entrypoint invocation with arguments - always JSON output
+if [[ $1 == '--base' ]] ; then
+  ( /conteco/bin/image/wrapper/run-image $@ ) > >( /conteco/bin/image/wrapper/to-JSON "INFO" ) 2> >( /conteco/bin/image/wrapper/to-JSON "ERROR" )
+
+# --interactive forces text output, required when interactively running processes within a container
+elif [[ $1 == '--interactive' ]] ; then
+  shift
+  /conteco/bin/image/wrapper/run-image $@
+
+# --container switch forces JSON output
+elif [[ $1 == '--container' ]] ; then
+  shift
+  ( /conteco/bin/image/wrapper/run-image $@ ) > >( /conteco/bin/image/wrapper/to-JSON "INFO" ) 2> >( /conteco/bin/image/wrapper/to-JSON "ERROR" )
+
+# double hyphen switches target image wrapper API, unless --base is used first
+# default mode is interactive and default output is text 
+elif [[ $1 == $match* ]] ; then
+  /conteco/bin/image/wrapper/run-image $@
+
+# default mode is JSON output
+else
+  ( /conteco/bin/image/wrapper/run-image $@ ) > >( /conteco/bin/image/wrapper/to-JSON "INFO" ) 2> >( /conteco/bin/image/wrapper/to-JSON "ERROR" )
+fi
+
+#echo "Execution completed." >> /conteco/pwd/completion.log
