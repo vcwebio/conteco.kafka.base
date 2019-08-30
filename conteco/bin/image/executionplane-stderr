@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+while read INPUT
+do
+  executionplane-message "ERROR" "$INPUT"
+done
+

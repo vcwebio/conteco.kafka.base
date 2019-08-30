@@ -22,8 +22,19 @@ By default no filter is applied. This can be overridden by all images.
 
 ### `image` API
 
-The image API contains methods for image internal use.  
-It contains two groupings: _general purpose_ and _executionplane_.  
+The `image` API contains two public methods for API method invocation:
+
+__`.invoke`__  
+This method invokes methods of the image specific API.
+It adds the image specific API folder to the front of the `$PATH` for the duration of its execution.
+
+__`.this`__  
+This method copies the image specific `controlplane` API method to the repository root.
+It is invoked by the `controlplane` instance which subsequently executes the method within its context.
+The API methods are stored in the `/conteco/bin/image/controlplane` folder.
+Image definitions are allowed to override the default implementation in situ.
+
+It contains two method groupings for internal use: _general purpose_ and _executionplane_.  
 [`image general purpose` API in detail](./docs/IMAGE-GENERAL-PURPOSE-API.md)  
 [`image executionplane` API in detail](./docs/IMAGE-EXECUTIONPLANE-API.md) (coming soon)
 

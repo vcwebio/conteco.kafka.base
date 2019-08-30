@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+timestamp=$( to-timestamp )
+action=$1
+shift
+arguments=$( echo "$@" | jq -aR . )
+
+printf '{ "@timestamp": "%s", "source":"executionplane", "executiontag": "%s", "executionplane": %s, "action": "%s", "arguments": %s}\n' \
+"$timestamp" "${CONTECO_EXECUTIONTAG}" "${CONTECO_EXECUTIONPLANE}" "$action" "$arguments"

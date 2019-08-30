@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+executionplane-message "COMMAND" "$@"
+"$@"

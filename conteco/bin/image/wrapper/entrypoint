@@ -38,5 +38,3 @@ elif [[ $1 == $match* ]] ; then
 else
   ( /conteco/bin/image/wrapper/run-image $@ ) > >( /conteco/bin/image/wrapper/to-JSON "INFO" ) 2> >( /conteco/bin/image/wrapper/to-JSON "ERROR" )
 fi
-
-#echo "Execution completed." >> /conteco/pwd/completion.log

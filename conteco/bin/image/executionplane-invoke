@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ "$CONTECO_EXECUTIONPLANE" == "$invocation" ]] ; then
+    executionplane-message "ERROR" "${CONTECO_EXECUTIONPLANE}: DIRECT RECURSE INTO SAME EXECUTION PLANE IS BLOCKED - ABORTING EXECUTION. MOST LIKELY CAUSE IS TARGETED API LAYER NOT PRESENT"
+    exit;
+fi
+invocation="${CONTECO_IMAGE}/conteco/$@"
+export CONTECO_EXECUTIONPLANE=$( echo  "$invocation" | jq -aR . )
+
+executionplane-message "INVOKED" ""
