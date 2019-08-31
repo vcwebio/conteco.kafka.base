@@ -29,6 +29,7 @@ __`controlplane` API grouping__
 This API contains the default implementation for the lifecycle methods of the _controlplane_, used by most images.  
 These implementations are requested by the _controlplane_ instance for execution within its context.  
 The implementations are removed after execution.
+
 [`controlplane` API grouping in detail](./docs/IMAGE-CONTROLPLANE-API.md)  
 
 ### `image` API
@@ -56,11 +57,13 @@ This folder contains methods for internal use of the public API implementation.
 The methods are split in two method groupings: `general purpose` and `executionplane`.  
 
 __`image general purpose` API__  
-This contains useful auxiliary methods.  
+This contains useful auxiliary methods.
+
 [`image general purpose` API in detail](./docs/IMAGE-GENERAL-PURPOSE-API.md)  
 
 __`image executionplane` API__  
-This grouping consists of a number of logging methods to report on execution progress.  
+This grouping consists of a number of logging methods to report on execution progress.
+ 
 [`image executionplane` API in detail](./docs/IMAGE-EXECUTIONPLANE-API.md)
 
 ### `image.wrapper` API

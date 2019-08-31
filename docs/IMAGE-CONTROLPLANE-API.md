@@ -5,11 +5,15 @@
 
 The image implementation of the image-provided _controlplane_ API.
 
+Only `build` has a basic implementation.  
+The implementation of these methods will be continued when _controlplane.base_ is being refactored.
+
 __`configure`__  [flags] [rootPath]  
 Configure API grouping.  
 
 __`build`__  [flags] [rootPath]  
 Build API grouping.  
+Implementation of basic build method.
 
 __`relase`__  [flags] [rootPath]  
 Release API grouping.  
