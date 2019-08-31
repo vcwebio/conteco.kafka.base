@@ -3,7 +3,7 @@
 start=$SECONDS
 
 # image-wrapper status information
-timestamp=$(to-timestamp)
+timestamp=$(/conteco/bin/image/executionplane/to-timestamp)
 printf '{ "@timestamp":"%s", "source":"wrapper", "level": "INFO", ' "$timestamp"
 printf '"realm": "%s", "ecosystem": "%s", "base": "%s", "tag": "%s", ' "$CONTECO_REALM" "$CONTECO_ECOSYSTEM" "$CONTECO_BASE" "$CONTECO_TAG"
 printf '"status":"initialising", "entrypoint": "/conteco/bin/image/wrapper/run-image %s "}\n' "'$*'"
@@ -32,7 +32,7 @@ else
 fi 
 
 # emit log and image wrapper info upon termination
-timestamp=$(to-timestamp)
+timestamp=$(/conteco/bin/image/executionplane/to-timestamp)
 duration=$(( SECONDS - start))
 printf '{ "@timestamp":"%s", "source":"wrapper", "level": "INFO", ' "$timestamp"
 printf '"realm": "%s", "ecosystem": "%s", "base": "%s", "tag": "%s", ' "$CONTECO_REALM" "$CONTECO_ECOSYSTEM" "$CONTECO_BASE" "$CONTECO_TAG"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 export CONTECO_IMAGE="$CONTECO_TYPE.$CONTECO_NAME"
-export PATH="/conteco/bin/image:/conteco/bin:${PATH}"
+export PATH="/conteco/bin/image:${PATH}"
 export CONTECO_EXECUTIONPLANE_ORIGINALPATH=$PATH
 export CONTECO_EXECUTIONPLANE="\"${CONTECO_IMAGE}\""
 

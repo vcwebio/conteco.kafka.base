@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-. executionplane-invoke "bin/image/.this $@"
-rootPath=$1
-method=$2
+(
+    export PATH="/conteco/bin/image/executionplane:/conteco/bin:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
+    . executionplane-invoke "bin/image/.this $@"
+    rootPath=$1
+    method=$2
 
-# copy the method file to the repository root
-cp "/conteco/bin/image/controlplane/${method}" "${rootPath}/${method}"
-. executionplane-copied "/conteco/bin/image/controlplane/${method} >>> /$method"
-
-. complete-executionplane
+    # copy the method file to the repository root
+    cp "/conteco/bin/image/controlplane/${method}" "${rootPath}/${method}"
+    . executionplane-copied "/conteco/bin/image/controlplane/${method} >>> /$method"
+    . complete-executionplane
+)

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-. executionplane-invoke "bin/image/.invoke $@"
 (
-    export PATH="/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
+    export PATH="/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}:/conteco/bin/image/executionplane:/conteco/bin:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
+    . executionplane-invoke "bin/image/.invoke $@"
     . .invoke "$@"
+    . executionplane-complete
 )
-. executionplane-complete
 

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# changing from multiple methods to flag driven behaviour
+# arguments need defining and extracting
+(
+    flags=$1
+    rootPath=$2
+    . invoke-executionplane "pwd/$rootPath/deploy $flags"
+#    shopt -s nullglob
+#    .cluster network create "${CONTECO_NAME}_overlay"
+#
+#    methodfile="./infometis/${CONTECO_TYPE}/${CONTECO_NAME}/bin/${method}"
+#    if [[ -f "$methodfile" ]]; then
+#        . executionplane-info "Executing specific implementation for ${CONTECO_TYPE}:${CONTECO_NAME}."
+#        $methodfile
+#    else
+#        . executionplane-info "Executing container model ${CONTECO_MODEL} implementation."
+#        current=$(pwd)
+#        for f in ./stacks/*;
+#            do
+#            base=$(basename $f)
+#            if [[ $base != "${INFOMETIS_MODULENAME}" ]] ; then
+#                cd $f
+#                .invoke $method 
+#                cd $current
+#            fi
+#            done;
+#    fi
+    . complete-executionplane
+)

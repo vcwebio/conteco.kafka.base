@@ -3,7 +3,6 @@
 
 # `image executionplane` API 
 
-Location: `/conteso/bin/image`  
 The methods are prefixed with `executionplane`.  
 Execution logging methods used in the image and controlplane API method implementation.
 
@@ -40,11 +39,11 @@ __`executionplane-stdout`__  [INPUT]
 Reads the input buffer and outputs it as `executionplane-message`s of type _INFO_.
 Auxiliary method used by `executionplan`.
 
-__`executionplane-transparent`__  [method] [arguments]
+__`executionplane-transparent`__  [method] [arguments]  
 Logs the execution of a command using the _COMMAND_ message type.
 Executes the command without interfering with the output.
 
-__`executionplane-warning`__  [warning details]
+__`executionplane-warning`__  [warning details]  
 Executes `executionplane-message` with type _WARNING_ and includes warning details if supplied.
 
 -----

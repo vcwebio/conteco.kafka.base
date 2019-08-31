@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# changing from multiple methods to flag driven behaviour
+# arguments need defining and extracting
+(
+    flags=$1
+    rootPath=$2
+    . invoke-executionplane "pwd/$rootPath/configure $flags"
+#    if [[ $method == "clone" ]] ; then
+#        . executionplane-info "Clone only if destination repository does not exist."
+#        destination="../../${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.${CONTECO_TYPE}.${CONTECO_NAME}"
+#        if [ -d "$destination" ] ; then
+#            . executionplane-error "DESTINATION REPOSITORY EXISTS: CLONE IS ABORTED."
+#            . executionplane-info "Remove destination repository and repeat clone."
+#        else 
+#            . executionplane-info "Proceeding cloning repository: from source to destination"
+#        fi
+#    fi
+    . complete-executionplane
+)

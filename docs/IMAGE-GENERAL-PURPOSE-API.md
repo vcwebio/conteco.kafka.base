@@ -4,7 +4,6 @@
 
 # `image general purpose` API 
 
-Location: `/conteso/bin/image`  
 General purpose methods for image internal use.
 
 __`create-random`__  

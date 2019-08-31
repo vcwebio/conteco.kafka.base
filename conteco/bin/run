@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# changing from multiple methods to flag driven behaviour
+# arguments need defining and extracting
+(
+    flags=$1
+    rootPath=$2
+    . invoke-executionplane "pwd/$rootPath/run $flags"
+    . executionplane-warning "No implementation for default container."
+    . complete-executionplane
+)
