@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="Import of external official Confluent Kafka image in
 
 export CONTECO_TYPE="external"
 export CONTECO_NAME="kafka"
-export CONTECO_TAG="5.1.2"
+export CONTECO_TAG="5.2.3"
 
-export CONTECO_BASE="confluentinc/cp-kafka:5.1.2"
+export CONTECO_BASE="confluentinc/cp-kafka:5.2.3"
 export CONTECO_BUILD="external-mapped"

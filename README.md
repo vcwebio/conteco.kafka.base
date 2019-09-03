@@ -6,7 +6,7 @@ Import of external official Confluent Kafka image into the ContEco ecosystem.
 
 ### Current Version
 
-Current import is based on confluentinc/cp-kafka:5.1.2
+Current import is based on confluentinc/cp-kafka:5.2.3
 
 ### Previous Versions
 
@@ -23,5 +23,6 @@ The import build installs the following packages:
 
 ## Tags
 
-* 5.1.2 (latest)  
+* 5.2.3 (latest)  
+* 5.1.2
 

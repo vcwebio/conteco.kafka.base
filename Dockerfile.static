@@ -1,5 +1,5 @@
 ##### BEGIN external-mapped/Dockerfile/iamge-header #####
-FROM confluentinc/cp-kafka:5.1.2
+FROM confluentinc/cp-kafka:5.2.3
 ##### END external-mapped/Dockerfile/image-header #####
 
 ##### BEGIN image/Dockerfile/build-instructions #####
@@ -18,8 +18,8 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.ecosystem="conteco" \
       io.vcweb.type="external" \
       io.vcweb.name="kafka" \
-      io.vcweb.tag="5.1.2" \
-      io.vcweb.base="confluentinc/cp-kafka:5.1.2" \
+      io.vcweb.tag="5.2.3" \
+      io.vcweb.base="confluentinc/cp-kafka:5.2.3" \
       io.vcweb.build="external-mapped" \
       io.vcweb.label="External Confluent Kafka image" \
       io.vcweb.description="Import of external official Confluent Kafka image into the ContEco ecosystem." \
