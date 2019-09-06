@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 (
-    export PATH="/conteco/bin/image/executionplane:/conteco/bin:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
+    export PATH="/conteco/bin/image/executionplane:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
     . executionplane-invoke "bin/image/.this $@"
     rootPath=$1
     method=$2
