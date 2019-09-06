@@ -14,7 +14,7 @@ This image is only concerned with common functionality that is code invariant an
 These APIs are organised in subfolders of the `/conteco/bin` folder.  
 The scripts in the `bin` folder itself can be overridden by any image.
 
-### `bin` API
+## `bin` API
 
 Location: `/conteco/bin`
 
@@ -32,7 +32,7 @@ The implementations are removed after execution.
 
 [`controlplane` API grouping in detail](./docs/IMAGE-CONTROLPLANE-API.md)  
 
-### `image` API
+## `image` API
 
 Location: `/conteco/bin/image`
 
@@ -49,7 +49,7 @@ It is invoked by the `controlplane` instance which subsequently executes the met
 The API methods are stored in the `/conteco/bin/image/controlplane` folder.
 Image definitions are allowed to override the default implementation in situ.
 
-### `image.executionplane` API
+## `image.executionplane` API
 
 Location: `/conteco/bin/image/executionplane`
 
@@ -66,7 +66,7 @@ This grouping consists of a number of logging methods to report on execution pro
  
 [`image executionplane` API in detail](./docs/IMAGE-EXECUTIONPLANE-API.md)
 
-### `image.wrapper` API
+## `image.wrapper` API
 
 Location: `/conteco/bin/image/wrapper`
 
