@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# .invoke ports the invocation to the image functional API
+# The first arguments is the API method
 (
     export PATH="/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}:/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}/internal:/conteco/bin/image/executionplane:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
     . executionplane-invoke "bin/image/.invoke $@"
