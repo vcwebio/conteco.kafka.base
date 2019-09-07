@@ -2,6 +2,6 @@
 (
     export PATH="/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}:/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}/internal:/conteco/bin/image/executionplane:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
     . executionplane-invoke "bin/image/.invoke $@"
-    . .invoke "$@"
+    . "$@"
     . executionplane-complete
 )
