@@ -2,5 +2,6 @@
 
 executionplane-message "COMMAND" "$@"
 executionplane-message "" ""
-"$@"  > >( executionplane-stdout ) 2> >( executionplane-stderr)
+"$@"  > >( executionplane-output-parser-stdout ) 2> >( executionplane-output-parser-stderr)
 executionplane-message "" ""
+executionplane-wait-for-output-parser

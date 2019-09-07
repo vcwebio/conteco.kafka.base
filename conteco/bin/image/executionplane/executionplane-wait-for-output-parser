@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+test="continue"
+while [[ $test != "" ]]
+do 
+    usleep 100
+    test=$(ps aux | grep -i /conteco/bin/controlplane/base/internal/output-parser-tagged)
+    done
