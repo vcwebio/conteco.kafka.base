@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
 executionplane-message "COMMAND" "$@"
-executionplane-message "" ""
-"$@"  > >( executionplane-stdout ) 2> >( executionplane-stderr)
-executionplane-message "" ""
+"$@"  > >( executionplane-output-parser-stdout ) 2> >( executionplane-output-parser-stderr)
+executionplane-wait-for-output-parser
