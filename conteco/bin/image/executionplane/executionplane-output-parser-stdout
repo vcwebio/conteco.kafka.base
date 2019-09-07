@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 while read INPUT
 do
-  executionplane-message "INFO" "$INPUT"
+  if [[ $INPUT == *"\"action\": \"ERROR\","* ]] ; then
+    echo "$INPUT"
+  else
+    executionplane-message "INFO" "$INPUT"
+  fi
 done
 
