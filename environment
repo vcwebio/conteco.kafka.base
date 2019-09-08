@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="The conteco.image.wrapper image holds the common fun
 
 export CONTECO_TYPE="image"
 export CONTECO_NAME="wrapper"
-export CONTECO_TAG="v0.6.0"
+export CONTECO_TAG="v0.7.0"
 
 export CONTECO_BASE="external.bash"
 export CONTECO_BUILD="image-wrapper"
