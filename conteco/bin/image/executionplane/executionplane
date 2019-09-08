@@ -2,4 +2,8 @@
 
 executionplane-message "COMMAND" "$@"
 "$@"  > >( executionplane-output-parser-stdout ) 2> >( executionplane-output-parser-stderr)
+<<<<<<< HEAD
 executionplane-wait-for-output-parser
+=======
+executionplane-wait-for-output-parser
+>>>>>>> workspace
