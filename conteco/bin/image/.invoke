@@ -2,8 +2,8 @@
 # .invoke ports the invocation to the image functional API
 # The first arguments is the API method
 (
-    export PATH="/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}:/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}/internal:/conteco/bin/image/executionplane:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
-    . executionplane-invoke "bin/image/.invoke $@"
-    . "$@"
+    export PATH="/conteco/bin/${CONTECO_TYPE}/${CONTECO_NAME}:$CONTECO_EXECUTIONPLANE_ORIGINALPATH"
+    . executionplane-invoke "$0 $@"
+    "$@"
     . executionplane-complete
 )
