@@ -22,11 +22,7 @@ ENV CONTECO_REALM="vcwebio" \
     CONTECO_ECOSYSTEM="conteco" \
     CONTECO_TYPE="image" \
     CONTECO_NAME="wrapper" \
-<<<<<<< HEAD
-    CONTECO_TAG="v0.5.0" \
-=======
     CONTECO_TAG="v0.6.0" \
->>>>>>> workspace
     CONTECO_BASE="external.bash" \
     CONTECO_BUILD="wrapper"
 LABEL io.vcweb.schema-version="1.0" \
@@ -34,11 +30,7 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.ecosystem="conteco" \
       io.vcweb.type="image" \
       io.vcweb.name="wrapper" \
-<<<<<<< HEAD
-      io.vcweb.tag="v0.5.0" \
-=======
       io.vcweb.tag="v0.6.0" \
->>>>>>> workspace
       io.vcweb.base="external.bash" \
       io.vcweb.build="wrapper" \
       io.vcweb.label="Image Wrapper" \
