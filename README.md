@@ -36,33 +36,30 @@ The implementations are removed after execution.
 
 Location: `/conteco/bin/image`
 
-The `/conteco/bin/image` folder is the only folder added to the `$PATH` at container initialisation.
-It contains two methods used for API method invocation:
+The `/conteco/bin/image` folder is the only folder added to the `$PATH` at container initialisation.  
+It contains two methods used for API method invocation and a general purpose API:
 
 __`invoke`__  
-This method invokes methods of the image specific API.
+This method invokes methods of the image specific API.  
 It adds the image specific API folder to the front of the `$PATH` for the duration of its execution.
 
 __`this`__  
-This method copies the image specific `controlplane` API method to the repository root.
-It is invoked by the `controlplane` instance which subsequently executes the method within its context.
+This method copies the image specific `controlplane` API method to the repository root.  
+It is invoked by the `controlplane` instance which subsequently executes the method within its context.  
 The API methods are stored in the `/conteco/bin/image/controlplane` folder.
 Image definitions are allowed to override the default implementation in situ.
+
+__`image general purpose` API__  
+The general purpose API contains useful auxiliary methods.
+
+[`image general purpose` API in detail](./docs/IMAGE-GENERAL-PURPOSE-API.md)  
 
 ## `image.executionplane` API
 
 Location: `/conteco/bin/image/executionplane`
 
-This folder contains methods for internal use of the public API implementation.
-The methods are split in two method groupings: `general purpose` and `executionplane`.  
-
-__`image general purpose` API__  
-This contains useful auxiliary methods.
-
-[`image general purpose` API in detail](./docs/IMAGE-GENERAL-PURPOSE-API.md)  
-
-__`image executionplane` API__  
-This grouping consists of a number of logging methods to report on execution progress.
+This folder contains methods for internal use for the public API implementation.  
+It consists of a number of logging methods to report on execution progress.
  
 [`image executionplane` API in detail](./docs/IMAGE-EXECUTIONPLANE-API.md)
 
@@ -74,3 +71,5 @@ The wrapper API manages container interaction with stdin, stdout and stderr.
 It is accessible using command line flags when instantiating the image.
 
 [`image.wrapper` API Flags in detail](./docs/IMAGE-WRAPPER-API-FLAGS.md)
+
+[`image.wrapper` API Methods in detail](./docs/IMAGE-WRAPPER-API.md)
