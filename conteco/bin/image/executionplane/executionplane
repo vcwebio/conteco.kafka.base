@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
 executionplane-message "COMMAND" "$@"
-"$@"  > >( executionplane-output-parser-stdout ) 2> >( executionplane-output-parser-stderr)
+if [[ "${BASH_ARGV[0]}" == "--transparent" ]] ; then
+	"${@:1:$#-1}"
+else
+	"$@"  > >( executionplane-output-parser-stdout ) 2> >( executionplane-output-parser-stderr)
+fi
 executionplane-wait-for-output-parser

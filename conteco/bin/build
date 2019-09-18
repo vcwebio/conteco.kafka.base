@@ -5,9 +5,7 @@
 # current functinality limited to simple build
 # arguments need defining and extracting
 (
-    flags=$1
-    rootPath=$2
-    . invoke-executionplane "pwd/$rootPath/build $flags"
-    .container build
-    . complete-executionplane
+    . executionplane-invoke "$0 $@"
+    build $@
+    executionplane-complete
 )
