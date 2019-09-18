@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+executionplane-message "COMMAND" "$@"
+(${@:1:$#-1} | tee ${BASH_ARGV[0]})  > >( executionplane-output-parser-stdout ) 2> >( executionplane-output-parser-stderr)
+executionplane-wait-for-output-parser

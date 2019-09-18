@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+tmpfile=$(mktemp /tmp/executionplane-capture-output.XXXXXX)
+$@ $tmpfile
+export CONTECO_EXECUTIONPLANE_OUTPUT=$(cat $tmpfile)
+rm $tmpfile
