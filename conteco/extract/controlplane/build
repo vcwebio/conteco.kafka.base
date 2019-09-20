@@ -6,6 +6,9 @@
 # arguments need defining and extracting
 (
     . executionplane-invoke "$0 $@"
+	if [[ "$1" == "all" ]] ; then
+		shift
+	fi
     build $@
     executionplane-complete
 )

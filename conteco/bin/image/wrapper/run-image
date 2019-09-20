@@ -28,7 +28,7 @@ elif [ $1 == '--extract' ] ; then
 
 # --help switch lists available asset folder in image wrapper not including docs
 elif [ $1 == '--help' ]; then 
-  (cat help.txt) | envsubst
+  (cat /conteco/assets/image/wrapper/help.txt) | envsubst
   echo ""
 
 else

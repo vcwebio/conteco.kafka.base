@@ -5,5 +5,5 @@ echo "Existing folder will be removed first."
 destination=/conteco/pwd/$CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_TYPE.$CONTECO_NAME
 rm -rf $destination
 mkdir -p $destination
-cp -rp /conteco/git-repository/. $destination
+cp -rp /conteco/repo/. $destination
 chmod -R 777 $destination
