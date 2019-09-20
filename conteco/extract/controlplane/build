@@ -6,12 +6,9 @@
 # arguments need defining and extracting
 (
     . executionplane-invoke "$0 $@"
-<<<<<<< HEAD:conteco/bin/build
-=======
 	if [[ "$1" == "all" ]] ; then
 		shift
 	fi
->>>>>>> workspace:conteco/extract/controlplane/build
     build $@
     executionplane-complete
 )
