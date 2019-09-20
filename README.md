@@ -25,10 +25,14 @@ __`output-to-JSON`__
 This method provides the output from `stdout` to the JSON convertor when using the __ContEco__ JSON output format.  
 By default no filter is applied. This can be overridden by all images. 
 
-__`controlplane` API grouping__  
-This API contains the default implementation for the lifecycle methods of the _controlplane_, used by most images.  
-These implementations are requested by the _controlplane_ instance for execution within its context.  
-The implementations are removed after execution.
+## `controlplane` Lifecycle API
+
+Location: `/conteco/extract/controlplane`
+
+Each image contains an image specific implementations for the controlplane lifecycle methods.  
+These methods are executed within the context of the `controlplane` image and are extracted just prior to execution.
+This is the reason why they are stored in the `extract` folder.  
+Image definitions can amend these methods as required using the `controlplane.base` external and internal API.
 
 [`controlplane` API grouping in detail](./docs/IMAGE-CONTROLPLANE-API.md)  
 
@@ -37,17 +41,11 @@ The implementations are removed after execution.
 Location: `/conteco/bin/image`
 
 The `/conteco/bin/image` folder is the only folder added to the `$PATH` at container initialisation.  
-It contains two methods used for API method invocation and a general purpose API:
+It contains the API method invocation handler and a number of auxiliary methods:
 
 __`invoke`__  
 This method invokes methods of the image specific API.  
 It adds the image specific API folder to the front of the `$PATH` for the duration of its execution.
-
-__`this`__  
-This method copies the image specific `controlplane` API method to the repository root.  
-It is invoked by the `controlplane` instance which subsequently executes the method within its context.  
-The API methods are stored in the `/conteco/bin/image/controlplane` folder.
-Image definitions are allowed to override the default implementation in situ.
 
 __`image general purpose` API__  
 The general purpose API contains useful auxiliary methods.
