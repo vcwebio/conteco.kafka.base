@@ -9,7 +9,7 @@ RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && c
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN external/Dockerfile/conteco #####
-COPY ./ /conteco/git-repository/
+COPY ./ /conteco/repo/
 ##### END external/Dockerfile/conteco #####
 
 ##### BEGIN external-mapped/Dockerfile/labels-footer #####
@@ -23,5 +23,5 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.build="external-mapped" \
       io.vcweb.label="External Confluent Kafka image" \
       io.vcweb.description="Import of external official Confluent Kafka image into the ContEco ecosystem." \
-      io.vcweb.repository="/conteco/git-repository" 
+      io.vcweb.repository="/conteco/repo" 
 ##### END external-mapped/Dockerfile/labels-footer #####
