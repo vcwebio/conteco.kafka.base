@@ -17,6 +17,8 @@ COPY ./ /conteco/repo/
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
 COPY ./conteco/configs/etc/kafka/server.properties /etc/kafka/server.properties
+COPY ./conteco/configs/etc/kafka/log4j.properties /etc/kafka/log4j.properties
+COPY ./conteco/configs/etc/kafka/tools-log4j.properties /etc/kafka/tools-log4j.properties
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
@@ -37,5 +39,5 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.build="image-base" \
       io.vcweb.label="kafka.base - ContEco" \
       io.vcweb.description="Confluent Kafka Base image, with configuration changes." \
-      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.kafka.base --help" 
+      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.kafka.base --help"
 ##### END image.base/Dockerfile/env-labels-footer #####
