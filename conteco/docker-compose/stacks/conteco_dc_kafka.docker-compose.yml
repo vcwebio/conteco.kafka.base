@@ -22,7 +22,7 @@ services:
           memory: '${CONTECO_DC_KAFKA_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
       placement:
         constraints: [${CONTECO_DC_KAFKA_DEPLOY_PLACEMENT_CONSTRAINTS}]
-      labels: []
+      labels: [${CONTECO_DC_KAFKA_DEPLOY_LABELS}]
     labels: [${CONTECO_DC_KAFKA_LABELS}]
 # END SERVICE kafka.base
 
