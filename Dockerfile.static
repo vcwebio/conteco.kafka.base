@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
 FROM vcwebio/conteco.image.wrapper AS wrapper
-FROM vcwebio/conteco.external.kafka:5.4.0 AS base
+FROM vcwebio/conteco.external.kafka:6.0.0 AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -26,16 +26,16 @@ ENV CONTECO_REALM="vcwebio" \
     CONTECO_ECOSYSTEM="conteco" \
     CONTECO_TYPE="kafka" \
     CONTECO_NAME="base" \
-    CONTECO_TAG="5.4.0" \
-    CONTECO_BASE="external.kafka:5.4.0" \
+    CONTECO_TAG="6.0.0" \
+    CONTECO_BASE="external.kafka:6.0.0" \
     CONTECO_BUILD="image-base"
 LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.realm="vcwebio" \
       io.vcweb.ecosystem="conteco" \
       io.vcweb.type="kafka" \
       io.vcweb.name="base" \
-      io.vcweb.tag="5.4.0" \
-      io.vcweb.base="external.kafka:5.4.0" \
+      io.vcweb.tag="6.0.0" \
+      io.vcweb.base="external.kafka:6.0.0" \
       io.vcweb.build="image-base" \
       io.vcweb.label="kafka.base - ContEco" \
       io.vcweb.description="Confluent Kafka Base image, with configuration changes." \
