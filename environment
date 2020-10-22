@@ -7,5 +7,6 @@ export CONTECO_TYPE="kafka"
 export CONTECO_NAME="base"
 export CONTECO_TAG="6.0.0"
 
-export CONTECO_BASE="external.kafka:6.0.0"
 export CONTECO_BUILD="image-base"
+
+export CONTECO_EXTERNAL_IMAGE_NAME="confluentinc/cp-enterprise-kafka:6.0.0"

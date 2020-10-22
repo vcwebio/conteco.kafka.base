@@ -1,12 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
-FROM vcwebio/conteco.image.wrapper AS wrapper
-FROM vcwebio/conteco.external.kafka:6.0.0 AS base
+FROM vcwebio/conteco.image.wrapper AS base
 ##### END image.base/Dockerfile/image-header #####
-
-##### BEGIN image.base/Dockerfile/conteco #####
-COPY --from=wrapper /conteco/ /conteco/
-ENTRYPOINT ["/conteco/bin/image/wrapper/entrypoint"]
-##### END image.base/Dockerfile/conteco #####
 
 ##### BEGIN image/Dockerfile/conteco #####
 COPY ./conteco/ /conteco/
@@ -14,20 +8,13 @@ RUN chmod -R +x /conteco/bin && rm -rf /conteco/repo
 COPY ./ /conteco/repo/
 ##### END image/Dockerfile/conteco #####
 
-##### BEGIN image/Dockerfile/build-instructions #####
-ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
-COPY ./conteco/configs/etc/kafka/server.properties /etc/kafka/server.properties
-COPY ./conteco/configs/etc/kafka/log4j.properties /etc/kafka/log4j.properties
-COPY ./conteco/configs/etc/kafka/tools-log4j.properties /etc/kafka/tools-log4j.properties
-##### END image/Dockerfile/build-instructions #####
-
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
 ENV CONTECO_REALM="vcwebio" \
     CONTECO_ECOSYSTEM="conteco" \
     CONTECO_TYPE="kafka" \
     CONTECO_NAME="base" \
     CONTECO_TAG="6.0.0" \
-    CONTECO_BASE="external.kafka:6.0.0" \
+    CONTECO_BASE="controlplane.base" \
     CONTECO_BUILD="image-base"
 LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.realm="vcwebio" \
@@ -35,7 +22,7 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.type="kafka" \
       io.vcweb.name="base" \
       io.vcweb.tag="6.0.0" \
-      io.vcweb.base="external.kafka:6.0.0" \
+      io.vcweb.base="controlplane.base" \
       io.vcweb.build="image-base" \
       io.vcweb.label="kafka.base - ContEco" \
       io.vcweb.description="Confluent Kafka Base image, with configuration changes." \
